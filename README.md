@@ -1,6 +1,22 @@
-frontend-nanodegree-arcade-game
-===============================
+# Udacity Frontend Web Develper Nano-degree - Arcade Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Description
+This is a simple replica or variation on the classic Frogger Arcade game.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Goals / How to Win
+You will win this game by successfully moving your character across the map without colliding with any of the bugs on the map.
+
+## Scoring and Leveling Up
+Each time that you successfully navigate across the map, you will level up and be *awarded* 10 points. Be aware that anytime that you run into an enemy you will *lose* one point. Each time you level up the game will become more difficult by adding more enemies to the map.
+
+## How to Play
+You will use the arrow keys on your keyboard to move your character across the map. You can move in all four direction (up, down, left, right).
+
+## Installation
+To Run this game locally:
+1. Download or clone this repository
+2. Navigate to the location where you cloned or downloaded this repository.
+3. Open the `index.html` page in your favorite browser. (All testing and development was done with Google Chrome)
+
+## Live Demo
+You can see a live demo of this game here: (Demo)[http://frogger.ammon.plaidtie.net/]
