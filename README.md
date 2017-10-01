@@ -6,8 +6,8 @@ This is a simple replica or variation on the classic Frogger Arcade game.
 ## Goals / How to Win
 You will win this game by successfully moving your character across the map without colliding with any of the bugs on the map.
 
-## Scoring and Leveling Up
-Each time that you successfully navigate across the map, you will level up and be *awarded* 10 points. Be aware that anytime that you run into an enemy you will *lose* one point. Each time you level up the game will become more difficult by adding more enemies to the map.
+## Scoring
+Each time that you successfully navigate across the map, you will be *awarded* 10 points. Be aware that anytime that you run into an enemy you will *lose* one point.
 
 ## How to Play
 You will use the arrow keys on your keyboard to move your character across the map. You can move in all four direction (up, down, left, right).
