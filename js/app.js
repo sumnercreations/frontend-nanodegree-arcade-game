@@ -11,6 +11,7 @@ var Enemy = function() {
     var y_positions = [65, 145, 225];
     this.width = 85;
     this.height = 50;
+    this.speed = Math.random() * 256;
 
 
     // The image/sprite for our enemies, this uses
@@ -30,7 +31,7 @@ Enemy.prototype.update = function(dt) {
     var canvas = canvasElement[0];
 
     // move the enemy across the map
-    this.x += 100 * dt;
+    this.x += this.speed * dt;
 
     // once the enemy reaches the edge of the canvas, reset position to start
     if(this.x >= canvas.width) {
@@ -152,8 +153,9 @@ var allEnemies = [];
 // Place the player object in a variable called player
 var player = new Player(202, 405);
 var score = 0;
-// var level = 1;
-allEnemies.push(new Enemy);
+for(var i = 0; i < 3; i++) {
+    allEnemies.push(new Enemy);
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
