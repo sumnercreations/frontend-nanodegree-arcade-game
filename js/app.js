@@ -1,3 +1,4 @@
+"use strict;"
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -68,20 +69,21 @@ var Player = function(x, y) {
     this.y = y;
     this.width = 85;
     this.height = 50;
+    this.score = 0;
     // there are 5 possible player images.
     // Ideally I would like to allow them to choose,
     // but for now, let's just randomly select one.
-    // var characterSprites = [
-    //     'images/char-boy.png',
-    //     'images/char-cat-girl.png',
-    //     'images/char-horn-girl.png',
-    //     'images/char-pink-girl.png',
-    //     'images/char-princess-girl.png'
-    // ];
-    // this.sprite = characterSprites[Math.floor(Math.random() * characterSprites.length)];
+    var characterSprites = [
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
+    ];
+    this.sprite = characterSprites[Math.floor(Math.random() * characterSprites.length)];
     // For some reason, only the char-boy works. I don't have time to look into that further
-    this.sprite = 'images/char-boy.png';
-}
+    // this.sprite = 'images/char-boy.png';
+};
 
 Player.prototype.update = function(direction) {
     var canvasElement = document.getElementsByTagName('canvas');
@@ -92,67 +94,66 @@ Player.prototype.update = function(direction) {
     switch(direction) {
         case 'left':
             // 1. can't go off the canvas on the left.
-            if(player.x - 100 < 2) {
-                player.x = 2;
+            if(this.x - 100 < 2) {
+                this.x = 2;
             }else{
-                player.x -= 100;
+                this.x -= 100;
             }
 
-            if(player.y < 65) {
+            if(this.y < 65) {
                 cleanCanvas();
             }
             break;
         case 'right':
             // 1. can't go off the canvas on the right.
-            if(player.x + 100 > 402) {
-                player.x = 402;
+            if(this.x + 100 > 402) {
+                this.x = 402;
             }else{
-                player.x += 100;
+                this.x += 100;
             }
 
-            if(player.y < 65) {
+            if(this.y < 65) {
                 cleanCanvas();
             }
             break;
         case 'up':
             // 2. if they reach the top they win.
-            player.y -= 85;
-            if(player.y < -20) {
+            this.y -= 85;
+            if(this.y < -20) {
                 // made it to the top!
                 cleanCanvas();
-                player.y = 405;
+                this.y = 405;
                 updateScore(10);
             }
             break;
         case 'down':
             // 1. can't go off the canvas on the left.
-            if(player.y + 85 > 405) {
-                player.y = 405;
+            if(this.y + 85 > 405) {
+                this.y = 405;
             }else{
-                player.y += 85;
+                this.y += 85;
             }
             break;
         default:
             // not valid movement so don't do anything
     }
-}
+};
 
 Player.prototype.render = function() {
     // add the player to the canvas
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 Player.prototype.handleInput = function(direction) {
     // update the player position
     this.update(direction)
-}
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
 // Place the player object in a variable called player
 var player = new Player(202, 405);
-var score = 0;
 for(var i = 0; i < 3; i++) {
     allEnemies.push(new Enemy);
 }
@@ -176,9 +177,9 @@ var cleanCanvas = function() {
     // head doesn't remain at the top of the canvas.
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, 505, 171);
-}
+};
 
 var updateScore = function(adder) {
     var scoreSpan = document.getElementById("score");
-    scoreSpan.innerHTML = score += adder;
-}
+    scoreSpan.innerHTML = player.score += adder;
+};
